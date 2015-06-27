@@ -1,14 +1,3 @@
-#################################################################################################
-This README.txt explains steps to obtain 
-(a) wav/, 
-(b) etc/txt.done.data, 
-(c) lab_{wd/phn}_level/
-for building TTS system, given just audio (BIG_FILE.wav) without corresponding text.
-The BIG_FILE.wav is split into shorter wavefiles using sil. detection algo, and are
-copied to wav/ directory.
-The etc/txt.done.data and lab/ directory are produced by decoding audiobook using 
-Librispeech acoustic model in Kaldi framework. 
-#################################################################################################
 (1) Downloading Kaldi
 (2) Installing Kaldi on Linux
 (3) Set variables and execute run.sh 
@@ -37,16 +26,3 @@ Librispeech acoustic model in Kaldi framework.
        .../kaldi-trunk/tools/irstlm/bin to $PATH in ~/.bashrc file
 
 
-(3) Set variables and execute run.sh
-    -- Unzip prep_data_for_TTS.zip
-    -- Set KALDI-ROOT variable to .../kaldi-trunk (abs. path where Kaldi is installed) 
-       in prep_data_for_TTS/scripts/run_kaldi/path.sh file
-    -- cd prep_data_for_TTS/, set the following variables in run.sh, and run
-       BIG_FILE="./BIG_FILE.wav" 
-       expt_name="EMMA"
-       spk_gender="f"        // (m/f)
-       num_free_CPUs=20
-       Ngram=1
-       adapt="yes"           // (yes/no). If yes, transcript produced using 
-                             // Librispeech models is used for adapting the model to 
-                             // audiobook data. 
