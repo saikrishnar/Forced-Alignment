@@ -8,4 +8,8 @@ for a in *.wav
 do
 sox $a $a silence 1 0.1 1% 1 0.7 1% : newfile : restart
 done
-#sox EMMA.wav data_for_ASR/out.wav silence 1 0.1 1% 1 0.7 1% : newfile : restart
+
+cd script/run_kaldi_decoder
+
+sh run_kaldi.sh
+
